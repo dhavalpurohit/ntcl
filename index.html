@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTCL</title>
+
+    <!-- tailwind css import -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="p-3 bg-white-antiflash">
+    <div class="flex min-h-screen">
+        <aside class="md:flex flex-col items-center bg-white-default px-3.5 py-2 rounded-2xl md:min-w-[88px]">
+            <button id="close" class="md:hidden absolute top-1 right-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <path fill="currentColor"
+                        d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z" />
+                </svg>
+            </button>
+            <div class="logo mb-3.5">
+                <img src="assets/images/logo.svg" alt="logo">
+            </div>
+            <ul>
+                <li class="dashboard p-3.5 rounded-10px mb-[19px]">
+                    <a href="#">
+                        <img src="assets/icons/dashboard.png" class="m-auto" alt="dashboard" height="30">
+                    </a>
+                </li>
+                <li class="message p-3.5 rounded-10px mb-[19px]">
+                    <a href="#">
+                        <img src="assets/icons/message.png" class="m-auto" alt="message" height="30">
+                    </a>
+                </li>
+                <li class="contact p-3.5 rounded-10px mb-[19px] active">
+                    <a href="#"><img src="assets/icons/contact.png" class="m-auto" alt="contact" height="30"></a>
+                </li>
+                <li class="network p-3.5 rounded-10px mb-[19px]">
+                    <a href="#"><img src="assets/icons/network.png" class="m-auto" alt="network" height="30"></a>
+                </li>
+                <li class="chat p-3.5 rounded-10px mb-[19px]">
+                    <a href="#"><img src="assets/icons/chat.png" class="m-auto" alt="chat" height="30"></a>
+                </li>
+                <li class="chart p-3.5 rounded-10px mb-[19px]">
+                    <a href="#"><img src="assets/icons/chart.png" class="m-auto" alt="chart" height="30"></a>
+                </li>
+                <li class="plug p-3.5 rounded-10px mb-[19px]">
+                    <a href="#"><img src="assets/icons/plug.png" class="m-auto" alt="plug" height="30"></a>
+                </li>
+            </ul>
+            <div class="flex flex-col items-center mt-auto">
+                <span class="text-[10px] mb-1">powered by</span>
+                <img src="assets/images/logo.svg" alt="logo">
+            </div>
+        </aside>
+        <main class="relative md:pl-3 w-full overflow-hidden">
+            <header class="flex items-center w-full">
+                <button id="open" class="md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M5 17h14M5 12h14M5 7h14" />
+                    </svg>
+                </button>
+                <form class="mx-auto md:mx-0">
+                    <div class="flex md:w-[327px]">
+                        <div class="relative w-full">
+                            <input type="search" id=location-search"
+                                class="block p-2.5 pr-[40px] w-full z-20 placeholder:text-silver rounded-xl outline-0 shadow-lightgray"
+                                placeholder="Search" required>
+                            <button type="submit" class="absolute top-0 end-0 h-full p-3  rounded-e-xl bg-blue-crayola">
+                                <img src="assets/icons/search.png" alt="search">
+                                <span class="sr-only">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <button id="profile" class="md:hidden ml-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="20" viewBox="0 0 7 20" fill="none">
+                        <path
+                            d="M3.875 20C3.05 20 2.34375 19.7552 1.75625 19.2656C1.16875 18.776 0.875 18.1875 0.875 17.5C0.875 16.8125 1.16875 16.224 1.75625 15.7344C2.34375 15.2448 3.05 15 3.875 15C4.7 15 5.40625 15.2448 5.99375 15.7344C6.58125 16.224 6.875 16.8125 6.875 17.5C6.875 18.1875 6.58125 18.776 5.99375 19.2656C5.40625 19.7552 4.7 20 3.875 20ZM3.875 12.5C3.05 12.5 2.34375 12.2552 1.75625 11.7656C1.16875 11.276 0.875 10.6875 0.875 10C0.875 9.3125 1.16875 8.72396 1.75625 8.23438C2.34375 7.74479 3.05 7.5 3.875 7.5C4.7 7.5 5.40625 7.74479 5.99375 8.23438C6.58125 8.72396 6.875 9.3125 6.875 10C6.875 10.6875 6.58125 11.276 5.99375 11.7656C5.40625 12.2552 4.7 12.5 3.875 12.5ZM3.875 5C3.05 5 2.34375 4.75521 1.75625 4.26562C1.16875 3.77604 0.875 3.1875 0.875 2.5C0.875 1.8125 1.16875 1.22396 1.75625 0.734375C2.34375 0.244792 3.05 0 3.875 0C4.7 0 5.40625 0.244792 5.99375 0.734375C6.58125 1.22396 6.875 1.8125 6.875 2.5C6.875 3.1875 6.58125 3.77604 5.99375 4.26562C5.40625 4.75521 4.7 5 3.875 5Z"
+                            fill="#484848" />
+                    </svg>
+                </button>
+                <div class="profile flex flex-col md:flex-row items-center ml-auto">
+                    <button id="closeprofile" class="md:hidden absolute top-1 right-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z" />
+                        </svg>
+                    </button>
+                    <div class="order-2 md:order-1 flex h-[33px]">
+                        <a href="#" class="bg-white-default shadow-lightgray p-2 rounded-[6.6px] mr-3">
+                            <img src="assets/icons/info.png" alt="info">
+                        </a>
+                        <a href="#" class="bg-white-default shadow-lightgray p-2 rounded-[6.6px] mr-3">
+                            <img src="assets/icons/setting.png" alt="setting">
+                        </a>
+                        <a href="#" class="bg-white-default shadow-lightgray p-2 rounded-[6.6px]">
+                            <img src="assets/icons/bell.png" alt="bell">
+                        </a>
+                    </div>
+                    <div class="order-1 md:order-2 mb-2 md:mb-0 relative [50px] h-[50px] rounded-full ml-4">
+                        <div class="absolute top-0 p-2 rounded-full bg-green-mlachite"></div>
+                        <img src="assets/images/profile.png" alt="profile" width="50" height="50">
+                    </div>
+                </div>
+            </header>
+
+            <!-- table section -->
+            <section class="bg-white-default pt-[34px] pb-[18px] px-5 md:px-[52px] mt-4 shadow-lightgray rounded-3xl">
+                <!-- page title part -->
+                <div class="md:flex w-full">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+                            <path
+                                d="M17.5352 6.6905C17.4589 6.67811 17.3816 6.6724 17.3043 6.6734H4.14248L4.42948 6.53991C4.71001 6.40714 4.96522 6.22643 5.18368 6.00597L8.87459 2.31505C9.36069 1.85102 9.44237 1.10454 9.06815 0.546353C8.63261 -0.0484566 7.79735 -0.177605 7.2025 0.257938C7.15445 0.293145 7.10877 0.331522 7.06585 0.37282L0.391503 7.04716C-0.130097 7.56818 -0.130556 8.41336 0.39046 8.93496C0.390793 8.93529 0.391169 8.93567 0.391503 8.936L7.06585 15.6103C7.58786 16.1309 8.43304 16.1297 8.95364 15.6077C8.99461 15.5666 9.03286 15.5229 9.06815 15.4769C9.44237 14.9187 9.36069 14.1722 8.87459 13.7082L5.19036 10.0106C4.99451 9.81451 4.76933 9.65012 4.52292 9.52335L4.12246 9.34314H17.2309C17.9128 9.36846 18.5111 8.89212 18.6392 8.22185C18.7572 7.49414 18.2629 6.80856 17.5352 6.6905Z"
+                                fill="#484848" />
+                        </svg>
+                        <div class="text-[28px] font-semibold leading-8 text-gray-davys ml-2.5">Contacts</div>
+                    </div>
+                    <div class="flex ml-auto mt-2 md:mt-0">
+                        <form>
+                            <div class="flex w-full md:w-[312px]">
+                                <div class="relative w-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="absolute inset-y-0 left-[19px] my-auto" width="16" height="16"
+                                        viewBox="0 0 16 16" fill="none">
+                                        <path
+                                            d="M1.89835 11.0799C-0.632956 8.54862 -0.632904 4.42982 1.89835 1.8985C4.42972 -0.632832 8.54852 -0.632832 11.0798 1.8985C13.2273 4.04598 13.5526 7.23984 12.0564 9.7339C12.0564 9.7339 11.949 9.9142 12.0941 10.0592C12.9222 10.8872 15.4065 13.3715 15.4065 13.3715C16.0658 14.0308 16.2227 14.9526 15.638 15.5374L15.5374 15.6379C14.9527 16.2227 14.0308 16.0658 13.3716 15.4065C13.3716 15.4065 10.8925 12.9275 10.0662 12.1012C9.91407 11.9491 9.73382 12.0565 9.73382 12.0565C7.23978 13.5526 4.04587 13.2274 1.89835 11.0799ZM9.88123 9.88132C11.7517 8.01093 11.7516 4.96762 9.88118 3.09723C8.01077 1.22689 4.96742 1.22684 3.09706 3.09723C1.22664 4.96757 1.22664 8.01093 3.09706 9.88132C4.96747 11.7516 8.01077 11.7516 9.88123 9.88132Z"
+                                            fill="#AAAAAA" />
+                                        <path
+                                            d="M9.46871 6.10336C9.55576 6.10336 9.64426 6.08625 9.72957 6.05022C10.0703 5.906 10.2297 5.51283 10.0855 5.17203C9.17908 3.02996 6.69895 2.02472 4.5569 2.93115C4.21615 3.07537 4.05672 3.46854 4.20094 3.80934C4.34521 4.15014 4.73829 4.30946 5.0792 4.1653C6.54066 3.54688 8.23295 4.23276 8.85132 5.69421C8.95951 5.94982 9.20764 6.10336 9.46871 6.10336Z"
+                                            fill="#AAAAAA" />
+                                    </svg>
+                                    <input type="search" id=location-search"
+                                        class="block p-2.5 pl-[47px] w-full z-20 placeholder:text-silver rounded-xl outline-0 shadow-lightgray"
+                                        placeholder="Search" required>
+                                </div>
+                            </div>
+                        </form>
+                        <a href="#" class="bg-white-default shadow-lightgray py-3 px-5 rounded-xl ml-2.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="20" viewBox="0 0 7 20"
+                                fill="none">
+                                <path
+                                    d="M3.875 20C3.05 20 2.34375 19.7552 1.75625 19.2656C1.16875 18.776 0.875 18.1875 0.875 17.5C0.875 16.8125 1.16875 16.224 1.75625 15.7344C2.34375 15.2448 3.05 15 3.875 15C4.7 15 5.40625 15.2448 5.99375 15.7344C6.58125 16.224 6.875 16.8125 6.875 17.5C6.875 18.1875 6.58125 18.776 5.99375 19.2656C5.40625 19.7552 4.7 20 3.875 20ZM3.875 12.5C3.05 12.5 2.34375 12.2552 1.75625 11.7656C1.16875 11.276 0.875 10.6875 0.875 10C0.875 9.3125 1.16875 8.72396 1.75625 8.23438C2.34375 7.74479 3.05 7.5 3.875 7.5C4.7 7.5 5.40625 7.74479 5.99375 8.23438C6.58125 8.72396 6.875 9.3125 6.875 10C6.875 10.6875 6.58125 11.276 5.99375 11.7656C5.40625 12.2552 4.7 12.5 3.875 12.5ZM3.875 5C3.05 5 2.34375 4.75521 1.75625 4.26562C1.16875 3.77604 0.875 3.1875 0.875 2.5C0.875 1.8125 1.16875 1.22396 1.75625 0.734375C2.34375 0.244792 3.05 0 3.875 0C4.7 0 5.40625 0.244792 5.99375 0.734375C6.58125 1.22396 6.875 1.8125 6.875 2.5C6.875 3.1875 6.58125 3.77604 5.99375 4.26562C5.40625 4.75521 4.7 5 3.875 5Z"
+                                    fill="#484848" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- page title part end -->
+
+                <!-- filter part -->
+                <div class="pt-[18px] pb-[22px] md:flex items-center w-full">
+                    <div class="flex items-center">
+                        <button
+                            class="flex items-center shadow-lightgray rounded-xl leading-6 text-gray-davys font-normal bg-white-default py-2.5 px-5 mr-4">
+                            <img src="assets/icons/filter.png" alt="filter">
+                            <span class="ml-3">Filter</span>
+                        </button>
+                        <button
+                            class="flex items-center shadow-lightgray rounded-xl leading-6 text-gray-davys font-normal bg-white-default py-2.5 px-5">
+                            <img src="assets/icons/attributes.png" alt="attributes">
+                            <span class="ml-3">Attributes</span>
+                        </button>
+                    </div>
+                    <div
+                        class="max-w-max flex items-center gap-[5px] shadow-lightgray rounded-xl bg-white-default py-[3px] px-[5px] md:ml-auto mr-2.5 my-2 md:my-0">
+                        <button class="flex items-center justify-center bg-cyan-dark w-[49px] h-[34px] rounded-xl">
+                            <img src="assets/icons/arrow-marge.png" alt="arrow-marge">
+                        </button>
+                        <button class="flex items-center justify-center bg-yellow-sunglow w-[49px] h-[34px] rounded-xl">
+                            <img src="assets/icons/mark.png" alt="mark">
+                        </button>
+                        <button class="flex items-center justify-center bg-blue-yinmn w-[49px] h-[34px] rounded-xl">
+                            <img src="assets/icons/download.png" alt="download">
+                        </button>
+                        <button class="flex items-center justify-center bg-red-folly w-[49px] h-[34px] rounded-xl">
+                            <img src="assets/icons/delete.png" alt="delete">
+                        </button>
+                    </div>
+                    <button
+                        class="flex items-center justify-center bg-blue-crayola text-sm font-semibold text-white-default px-4 py-3.5 rounded-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path
+                                d="M11.3999 5.39998H6.60002V0.599962C6.60002 0.268835 6.33118 0 5.99995 0C5.66882 0 5.39998 0.268835 5.39998 0.599962V5.39998H0.599962C0.268835 5.39998 0 5.66882 0 5.99995C0 6.33118 0.268835 6.60002 0.599962 6.60002H5.39998V11.3999C5.39998 11.7312 5.66882 12 5.99995 12C6.33118 12 6.60002 11.7312 6.60002 11.3999V6.60002H11.3999C11.7312 6.60002 12 6.33118 12 5.99995C12 5.66882 11.7312 5.39998 11.3999 5.39998Z"
+                                fill="white" />
+                        </svg>
+                        <span class="ml-3">New contact</span>
+                    </button>
+                </div>
+                <!-- filter part end -->
+
+                <!-- table part -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-[1211px] w-full shadow-lightgray text-sm table-auto">
+                        <thead class="font-medium">
+                            <tr class="text-left">
+                                <th class="rounded-tl-3xl">
+                                    <div class="text-center">
+                                        <input type="checkbox" class="check_all" id="checkall" value="Check All">
+                                        <label for="checkall"></label>
+                                    </div>
+                                </th>
+                                <th> </th>
+                                <th> </th>
+                                <th>
+                                    <div class="float-left mr-2.5">First Name</div>
+                                    <svg class="mt-1.5" xmlns="http://www.w3.org/2000/svg" width="7" height="10"
+                                        viewBox="0 0 7 10" fill="none">
+                                        <path
+                                            d="M5.99994 6.2714L3.4995 8.65875L0.999063 6.2714C0.88931 6.16686 0.740453 6.10812 0.585238 6.10812C0.430023 6.10812 0.281166 6.16686 0.171412 6.2714C0.0616588 6.37595 0 6.51774 0 6.66559C0 6.81344 0.0616588 6.95524 0.171412 7.05978L3.08568 9.83577C3.13986 9.88781 3.20432 9.92911 3.27535 9.9573C3.34638 9.98549 3.42256 10 3.4995 10C3.57645 10 3.65263 9.98549 3.72365 9.9573C3.79468 9.92911 3.85914 9.88781 3.91333 9.83577L6.82759 7.05978C6.88194 7.00802 6.92505 6.94656 6.95446 6.87893C6.98387 6.81129 6.999 6.7388 6.999 6.66559C6.999 6.59239 6.98387 6.51989 6.95446 6.45226C6.92505 6.38462 6.88194 6.32317 6.82759 6.2714C6.77325 6.21964 6.70873 6.17857 6.63773 6.15056C6.56672 6.12254 6.49062 6.10812 6.41377 6.10812C6.33691 6.10812 6.26081 6.12254 6.18981 6.15056C6.1188 6.17857 6.05429 6.21964 5.99994 6.2714ZM0.999063 3.7286L3.4995 1.34125L5.99994 3.7286C6.05413 3.78063 6.11859 3.82194 6.18962 3.85012C6.26064 3.87831 6.33682 3.89282 6.41377 3.89282C6.49071 3.89282 6.56689 3.87831 6.63792 3.85012C6.70894 3.82194 6.77341 3.78063 6.82759 3.7286C6.88222 3.67698 6.92558 3.61558 6.95517 3.54792C6.98477 3.48027 7 3.4077 7 3.33441C7 3.26111 6.98477 3.18855 6.95517 3.12089C6.92558 3.05323 6.88222 2.99183 6.82759 2.94022L3.91333 0.164227C3.85914 0.112189 3.79468 0.0708852 3.72365 0.0426986C3.65263 0.0145119 3.57645 0 3.4995 0C3.42256 0 3.34638 0.0145119 3.27535 0.0426986C3.20432 0.0708852 3.13986 0.112189 3.08568 0.164227L0.171412 2.94022C0.117068 2.99198 0.0739597 3.05344 0.0445487 3.12107C0.0151378 3.18871 0 3.2612 0 3.33441C0 3.48226 0.0616588 3.62405 0.171412 3.7286C0.281166 3.83314 0.430023 3.89188 0.585238 3.89188C0.740453 3.89188 0.88931 3.83314 0.999063 3.7286Z"
+                                            fill="#4B4B4B" />
+                                    </svg>
+                                </th>
+                                <th>
+                                    <div class="float-left mr-2.5">Last Name </div>
+                                    <svg class="mt-1.5" xmlns="http://www.w3.org/2000/svg" width="7" height="10"
+                                        viewBox="0 0 7 10" fill="none">
+                                        <path
+                                            d="M5.99994 6.2714L3.4995 8.65875L0.999063 6.2714C0.88931 6.16686 0.740453 6.10812 0.585238 6.10812C0.430023 6.10812 0.281166 6.16686 0.171412 6.2714C0.0616588 6.37595 0 6.51774 0 6.66559C0 6.81344 0.0616588 6.95524 0.171412 7.05978L3.08568 9.83577C3.13986 9.88781 3.20432 9.92911 3.27535 9.9573C3.34638 9.98549 3.42256 10 3.4995 10C3.57645 10 3.65263 9.98549 3.72365 9.9573C3.79468 9.92911 3.85914 9.88781 3.91333 9.83577L6.82759 7.05978C6.88194 7.00802 6.92505 6.94656 6.95446 6.87893C6.98387 6.81129 6.999 6.7388 6.999 6.66559C6.999 6.59239 6.98387 6.51989 6.95446 6.45226C6.92505 6.38462 6.88194 6.32317 6.82759 6.2714C6.77325 6.21964 6.70873 6.17857 6.63773 6.15056C6.56672 6.12254 6.49062 6.10812 6.41377 6.10812C6.33691 6.10812 6.26081 6.12254 6.18981 6.15056C6.1188 6.17857 6.05429 6.21964 5.99994 6.2714ZM0.999063 3.7286L3.4995 1.34125L5.99994 3.7286C6.05413 3.78063 6.11859 3.82194 6.18962 3.85012C6.26064 3.87831 6.33682 3.89282 6.41377 3.89282C6.49071 3.89282 6.56689 3.87831 6.63792 3.85012C6.70894 3.82194 6.77341 3.78063 6.82759 3.7286C6.88222 3.67698 6.92558 3.61558 6.95517 3.54792C6.98477 3.48027 7 3.4077 7 3.33441C7 3.26111 6.98477 3.18855 6.95517 3.12089C6.92558 3.05323 6.88222 2.99183 6.82759 2.94022L3.91333 0.164227C3.85914 0.112189 3.79468 0.0708852 3.72365 0.0426986C3.65263 0.0145119 3.57645 0 3.4995 0C3.42256 0 3.34638 0.0145119 3.27535 0.0426986C3.20432 0.0708852 3.13986 0.112189 3.08568 0.164227L0.171412 2.94022C0.117068 2.99198 0.0739597 3.05344 0.0445487 3.12107C0.0151378 3.18871 0 3.2612 0 3.33441C0 3.48226 0.0616588 3.62405 0.171412 3.7286C0.281166 3.83314 0.430023 3.89188 0.585238 3.89188C0.740453 3.89188 0.88931 3.83314 0.999063 3.7286Z"
+                                            fill="#4B4B4B" />
+                                    </svg>
+                                </th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Country</th>
+                                <th>State</th>
+                                <th class="rounded-tr-3xl">Tag</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="0">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <div
+                                        class="bg-white-dutch text-orange-web rounded-md px-3.5 text-sm leading-6 max-w-max font-normal">
+                                        Finance
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="1">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="2">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="3">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="4">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="5">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="6">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="7">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="8">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <input type="checkbox" id="9">
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td><img src="assets/icons/message-black.png" alt="message" class="m-auto"></td>
+                                <td><img src="assets/images/profile.png" alt="profile" width="22" height="22"
+                                        class="m-auto"></td>
+                                <td>Sam</td>
+                                <td>Port</td>
+                                <td>samport7@gmail.com</td>
+                                <td>1234567890</td>
+                                <td>America</td>
+                                <td>America</td>
+                                <td>
+                                    <span>----</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- table part end -->
+
+                <!-- pagination part -->
+                <div class="flex flex-col md:flex-row items-center justify-end pt-3 gap-[22px]">
+                    <div class="bg-white-antiflash2 p-2 rounded-[10px] text-sm font-normal text-gray-davys">
+                        2 Items Selected
+                    </div>
+                    <div class="text-sm font-medium">
+                        Total 15 items
+                    </div>
+                    <div class="flex items-center justify-center text-sm gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.26521 0.141273C3.4333 -0.047091 3.70585 -0.047091 3.87394 0.141273C4.04202 0.329642 4.04202 0.635041 3.87394 0.82341L1.34352 3.65894C1.17543 3.84729 1.17543 4.15271 1.34352 4.34106L3.87394 7.17661C4.04202 7.36496 4.04202 7.67038 3.87394 7.85873C3.70585 8.04709 3.4333 8.04709 3.26521 7.85873L0.126074 4.34106C-0.0420247 4.15271 -0.0420247 3.84729 0.126074 3.65894L3.26521 0.141273Z"
+                                fill="black" />
+                        </svg>
+                        <div class="flex items-center justify-center w-4 h-4 bg-purple-pale rounded-[3px]">1</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="4" height="8" viewBox="0 0 4 8" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.73479 0.141273C0.566704 -0.047091 0.29415 -0.047091 0.126064 0.141273C-0.0420218 0.329642 -0.0420218 0.635041 0.126064 0.82341L2.65648 3.65894C2.82457 3.84729 2.82457 4.15271 2.65648 4.34106L0.126064 7.17661C-0.0420218 7.36496 -0.0420218 7.67038 0.126064 7.85873C0.29415 8.04709 0.566704 8.04709 0.73479 7.85873L3.87393 4.34106C4.04202 4.15271 4.04202 3.84729 3.87393 3.65894L0.73479 0.141273Z"
+                                fill="black" />
+                        </svg>
+                    </div>
+                    <select name="page" id="page"
+                        class="text-sm font-normal leading-6 border border-gray-platinum px-[7px] py-[5px] rounded-[9px] outline-0">
+                        <option value="10" class="">10 Pages</option>
+                    </select>
+                    <div class="text-sm font-medium">
+                        <span class="mr-2">Go to</span>
+                        <input type="text" id=goto"
+                            class="placeholder:text-silver  outline-0 border border-gray-platinum rounded-[9px] w-[47px] h-[30px]">
+                    </div>
+
+                </div>
+                <!-- pagination part end  -->
+            </section>
+            <!-- table section end-->
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>

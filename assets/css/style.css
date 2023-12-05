@@ -1,0 +1,187 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li.active {
+    position: relative;
+}
+
+aside ul li.active::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    top: 0;
+    left: -26px;
+    border-radius: 33px;
+}
+
+aside ul .dashboard.active {
+    background-color: rgba(104, 137, 207, 0.3);
+}
+
+aside ul .dashboard.active::before {
+    background-color: #6889CF;
+}
+
+aside ul .message.active {
+    background-color: rgba(17, 140, 126, 0.3);
+}
+
+aside ul .message.active::before {
+    background-color: #118C7E;
+}
+
+aside ul .contact.active {
+    background-color: rgb(253, 220, 222);
+}
+
+aside ul .contact.active::before {
+    background-color: #F45158;
+}
+
+aside ul .network.active {
+    background-color: rgba(238, 130, 68, 0.3);
+}
+
+aside ul .network.active::before {
+    background-color: #EE8244;
+}
+
+aside ul .chat.active {
+    background-color: rgba(65, 124, 255, 0.3);
+}
+
+aside ul .chat.active::before {
+    background-color: #417CFF;
+}
+
+aside ul .chart.active {
+    background-color: rgba(35, 211, 102, 0.3);
+}
+
+aside ul .chart.active::before {
+    background-color: #23D366;
+}
+
+aside ul .plug.active {
+    background-color: rgba(37, 37, 37, 0.3);
+}
+
+aside ul .plug.active::before {
+    background-color: #252525;
+}
+
+table {
+    border-radius: 24px;
+}
+
+table thead {
+    background: #E6F2FF;
+}
+
+table tr th {
+    font-weight: 500;
+}
+
+table th,
+table td {
+    padding: 11px 0;
+    border-bottom: 1px solid #DDE2E4;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table tbody tr.checked {
+    background: #F7F7F7;
+}
+
+table input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+}
+
+table label {
+    position: relative;
+    cursor: pointer;
+}
+
+table label:before {
+    content: '';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid #B0BABF;
+    border-radius: 4px;
+    padding: 6px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+table input:checked+label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
+}
+
+table input:checked+label:before {
+    background-color: #7426E1;
+    border-color: transparent;
+}
+
+@media (max-width:600px) {
+    aside {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        padding-top: 20px !important;
+        transform: translateX(-105%);
+        transition: all 0.5s ease-out;
+    }
+
+    aside.open {
+        transform: translateX(0);
+    }
+
+    .profile {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 16px;
+        transition: all 0.5s ease-out;
+    }
+
+    .profile.open {
+        right: 0;
+    }
+}
+
+@media (min-width:601px) {
+
+    #closeprofile,
+    #open,
+    #close,
+    #profile {
+        display: none;
+    }
+}
