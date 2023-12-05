@@ -146,6 +146,10 @@ table input:checked+label:before {
 }
 
 @media (max-width:600px) {
+    aside ul li.active::before {
+        left: -14px;
+    }
+
     aside {
         position: absolute;
         z-index: 1;

@@ -1,6 +1,6 @@
 $(function () {
     // side nav active
-    $("aside li").click(function () {
+    $("aside li a").click(function () {
         $(this).parent().addClass('active').siblings().removeClass('active')
 
     })
